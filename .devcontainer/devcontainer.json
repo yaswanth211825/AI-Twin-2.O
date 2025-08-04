@@ -1,0 +1,37 @@
+{
+  "name": "AI Twin 2.0 Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [8347, 9247, 5000],
+  "portsAttributes": {
+    "8347": {
+      "label": "AI Twin Web Interface",
+      "onAutoForward": "notify"
+    },
+    "9247": {
+      "label": "AI Twin Full Chat",
+      "onAutoForward": "notify"
+    },
+    "5000": {
+      "label": "Flask Default",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "vscode"
+}
