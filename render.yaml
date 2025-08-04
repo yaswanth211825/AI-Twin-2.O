@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ai-twin-website
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # You'll set this manually in Render dashboard
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: .
