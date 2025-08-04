@@ -6,6 +6,8 @@ Flask web application for interactive AI Twin chat with database viewing
 
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import sqlite3
 from datetime import datetime
 import json
